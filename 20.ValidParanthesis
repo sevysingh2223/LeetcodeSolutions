@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isValid(String s) {
+        if(isCheck(s, 0)){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isCheck(String str,int i) {
+        if(str.isEmpty()){
+            return true;
+        }
+        if(str.length()%2==1){
+            return false;
+        }
+        if(str.charAt(i)=='[' && str.charAt(i+1)==']'){
+            return isCheck(str.substring(2), i);
+        }
+        if(str.charAt(i)=='{' && str.charAt(i+1)=='}'){
+            return isCheck(str.substring(2), i);
+        }
+        if(str.charAt(i)=='(' && str.charAt(i+1)==')'){
+            return isCheck(str.substring(2), i);
+        }
+        return false;
+    }
+}
