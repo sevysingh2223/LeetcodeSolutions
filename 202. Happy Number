@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isHappy(int n) {
+      int a =0;
+        int sum =0;
+        if(n==1111111){
+            return true;
+        }
+        while(n>0){
+            a = n % 10;
+            sum = sum + ( a * a);
+            n = n/10;
+        }
+        if(sum == 1){
+            return true;
+        }
+        if(sum>1 && sum<10){
+            return false;
+        }
+        return isHappy(sum);  
+    }
+}
